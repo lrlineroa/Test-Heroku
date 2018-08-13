@@ -1,11 +1,13 @@
 
 class Api::V1::ArticlesController < ApplicationController
   	def index
+		
   		articles=Article.order('created_at DESC');
     	render json: {status: 'SUCCESS', message: 'Loaded articles successfully', data: articles}, status: :ok
   	end
 
   	def show
+		
         article=Article.find(params[:id])
         render json: {status: 'SUCCESS', message: 'Loaded article '  + params[:id]+ 'successfully', data: article}, status: :ok
 	end
